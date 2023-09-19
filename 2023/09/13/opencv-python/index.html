@@ -1,0 +1,413 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>OpenCv | 木槿汐 | Blog</title><meta name="author" content="alesmic"><meta name="copyright" content="alesmic"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="¶OpenCv概述 OpenCV是一个基于Apache2.0许可（开源）发行的跨平台计算机视觉和机器学习软件库，可以运行在Linux、Windows、Android和Mac OS操作系统上。 它轻量级而且高效——由一系列 C 函数和少量 C++ 类构成，同时提供了Python、Ruby、MATLAB等语言的接口，实现了图像处理和计算机视觉方面的很多通用算法。 OpenCV用C++语言编写，它具有C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCv">
+<meta property="og:url" content="https://alesmicb.online/2023/09/13/opencv-python/index.html">
+<meta property="og:site_name" content="木槿汐 | Blog">
+<meta property="og:description" content="¶OpenCv概述 OpenCV是一个基于Apache2.0许可（开源）发行的跨平台计算机视觉和机器学习软件库，可以运行在Linux、Windows、Android和Mac OS操作系统上。 它轻量级而且高效——由一系列 C 函数和少量 C++ 类构成，同时提供了Python、Ruby、MATLAB等语言的接口，实现了图像处理和计算机视觉方面的很多通用算法。 OpenCV用C++语言编写，它具有C">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230918143326.png">
+<meta property="article:published_time" content="2023-09-13T00:58:02.000Z">
+<meta property="article:modified_time" content="2023-09-19T00:48:12.692Z">
+<meta property="article:author" content="alesmic">
+<meta property="article:tag" content="嵌入式">
+<meta property="article:tag" content="图像处理">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230918143326.png"><link rel="shortcut icon" href="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/head_ico.png"><link rel="canonical" href="https://alesmicb.online/2023/09/13/opencv-python/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/themes/font.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"距离上次更新已经","messageNext":"天了，文章的内容可能已过时。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'OpenCv',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-19 08:48:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/themes/font.css"><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/head.jpg" onerror="onerror=null;src='https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/wallhaven-n625q4_1600x900.png'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 水平</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230918143326.png')"><nav id="nav"><span id="blog-info"><a href="/" title="木槿汐 | Blog"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/head_ico.png"/><span class="site-name">木槿汐 | Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 水平</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">OpenCv</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-13T00:58:02.000Z" title="发表于 2023-09-13 08:58:02">2023-09-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-19T00:48:12.692Z" title="更新于 2023-09-19 08:48:12">2023-09-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="OpenCv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="OpenCv概述"><a class="header-anchor" href="#OpenCv概述">¶</a>OpenCv概述</h1>
+<p>OpenCV是一个基于Apache2.0许可（开源）发行的跨平台<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/2803351">计算机视觉</a>和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/217599">机器学习</a>软件库，可以运行在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Linux/27050">Linux</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Windows/165458">Windows</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Android/60243">Android</a>和Mac OS操作系统上。 它轻量级而且高效——由一系列 C 函数和少量 C++ 类构成，同时提供了Python、Ruby、MATLAB等语言的接口，实现了<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/294902">图像处理</a>和计算机视觉方面的很多通用算法。</p>
+<p>OpenCV用C++语言编写，它具有C ++，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Python/407313">Python</a>，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Java/85979">Java</a>和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/MATLAB/263035">MATLAB</a>接口，并支持Windows，Linux，Android和Mac OS，OpenCV主要倾向于实时视觉应用，并在可用时利用MMX和SSE指令， 如今也提供对于C#、Ch、Ruby，GO的支持</p>
+<p>在android开发环境中配置好DpenCVL以后，我们可以方使的调用各种API函数对计算机图像进行各种处理，OpenCV目前可以实现的功能有：</p>
+<ul>
+<li>图像处理</li>
+<li>人机互动</li>
+<li>图像分割</li>
+<li>人灯脸检测</li>
+<li>动作识别</li>
+<li>运动跟踪</li>
+<li>运动分析</li>
+</ul>
+<h1 id="Android-Studio调用Python文件"><a class="header-anchor" href="#Android-Studio调用Python文件">¶</a>Android Studio调用Python文件</h1>
+<ol>
+<li>
+<p>在你的项目中创建多个Python文件，并按照需要编写你的Python代码。假设你有两个文件：<code>script1.py</code>和<code>script2.py</code>。</p>
+</li>
+<li>
+<p>将这些Python文件放在你的Android项目的适当位置，例如<code>app/src/main/assets</code>目录下。</p>
+</li>
+<li>
+<p>在Java或Kotlin类中使用Chaquopy来调用这些Python文件。例如，以下示例代码演示如何调用这两个Python文件：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> com.chaquo.python.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> {</span><br><span class="line">    <span class="keyword">protected</span> Python py;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> {</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            Python.start(<span class="keyword">new</span> <span class="title class_">AndroidPlatform</span>(<span class="built_in">this</span>));</span><br><span class="line">            py = Python.getInstance();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 调用第一个Python文件</span></span><br><span class="line">            <span class="type">PythonObject</span> <span class="variable">script1</span> <span class="operator">=</span> py.getModule(<span class="string">"script1"</span>);</span><br><span class="line">            <span class="type">PyObject</span> <span class="variable">obj1</span> <span class="operator">=</span> script1.callAttr(<span class="string">"function1"</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">result1</span> <span class="operator">=</span> obj1.toJava(String.class);</span><br><span class="line">            Log.d(<span class="string">"Python"</span>, result1);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 调用第二个Python文件</span></span><br><span class="line">            <span class="type">PythonObject</span> <span class="variable">script2</span> <span class="operator">=</span> py.getModule(<span class="string">"script2"</span>);</span><br><span class="line">            <span class="type">PyObject</span> <span class="variable">obj2</span> <span class="operator">=</span> script2.callAttr(<span class="string">"function2"</span>);</span><br><span class="line">            <span class="type">int</span> <span class="variable">result2</span> <span class="operator">=</span> obj2.toJava(<span class="type">int</span>.class);</span><br><span class="line">            Log.d(<span class="string">"Python"</span>, String.valueOf(result2));</span><br><span class="line"></span><br><span class="line">        } <span class="keyword">catch</span> (Exception e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>在上述示例代码中，我们使用Chaquopy的<code>getModule()</code>方法获取Python文件的模块，并使用<code>callAttr()</code>方法调用其中的函数。我们可以根据需要为每个Python文件编写适当的调用语句。</p>
+</li>
+</ol>
+<h1 id="图像基础"><a class="header-anchor" href="#图像基础">¶</a>图像基础</h1>
+<h2 id="模块说明"><a class="header-anchor" href="#模块说明">¶</a>模块说明</h2>
+<p>Cor:核心模快，包括甚陆数结构、绘乡数、敬细慢作数兽<br>
+gro(:阁像处理榄块，包，片陶修波、几何变换、南方陶、形态学处理、边缘检测、特征及<br>
+日标检测等：<br>
+Highgui:层GU川模块，包活用户界由、读/与图像及视欺等：<br>
+Video:视频模块，包括运动分析及日标跟踪：<br>
+其他模快，包括Calib3d,Features2d,Objdetect，Ml，lann.Gpu,Photo,Stitching等：</p>
+<h2 id="加载-显示-输出"><a class="header-anchor" href="#加载-显示-输出">¶</a>加载.显示.输出</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="OpenCV--Python.assets/image-20230915205011503.png" alt="image-20230915205011503"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="OpenCV--Python.assets/image-20230915205424327.png" alt="image-20230915205424327"></p>
+<h3 id="imread-–读取图像"><a class="header-anchor" href="#imread-–读取图像">¶</a>imread()–读取图像</h3>
+<ul>
+<li>
+<p>第一个参数 filename： 表示图像的路径。</p>
+</li>
+<li>
+<p>第二个参数 flags：表示读取图像的方式</p>
+<p>IMREAD_UNCHANGED = -1，表示读取原图, 不进行任何改变<br>
+IMREAD_GRAYSCALE = 0，表示以灰度图方式读取原图<br>
+IMREAD_COLOR = 1，表示以RGB方式读取原图</p>
+</li>
+</ul>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line">cv2.imread(<span class="string">"Cinema_4D.png"</span>, -<span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>注意：如果加载的路径有错误，不会报错，会返回一个None值</p>
+</blockquote>
+<h3 id="imshow–显示图像"><a class="header-anchor" href="#imshow–显示图像">¶</a>imshow–显示图像</h3>
+<p>参数：</p>
+<ul>
+<li>显示图像的窗口名称，以字符串类型表示</li>
+<li>要加载的图像</li>
+</ul>
+<blockquote>
+<p>注意：在调用显示图像的API后，要调用cv.waitKey()给图像绘制留下时间，否则窗口会出现无响应情况，并且图像无法显示出来。</p>
+</blockquote>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line">image = cv2.imread(<span class="string">"Cinema_4D.png"</span>, <span class="number">0</span>)</span><br><span class="line">cv2.imwrite(<span class="string">"E:/COMPETITON/1.jpg"</span>, image)</span><br><span class="line">cv2.imshow(<span class="string">"img"</span>, image)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="三维数组"><a class="header-anchor" href="#三维数组">¶</a>三维数组</h3>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(image)	<span class="comment">#三个[三维数组（彩色图片：高度、宽度、像素红绿蓝</span></span><br><span class="line">[[<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> ... <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> ... <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> ... <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> ... <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> ... <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> ... <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>第一维表示高度：</strong></p>
+<p>​	-1表示翻转颠倒，上下颠倒</p>
+<p><strong>第二维表示高度</strong></p>
+<p>​	-1左右翻转</p>
+<p><strong>第三维表示高度</strong></p>
+<p>​	-1颜色反转（表示颜色蓝0绿1红2：：-1红2绿1蓝0）</p>
+<h3 id="调整图片尺寸"><a class="header-anchor" href="#调整图片尺寸">¶</a>调整图片尺寸</h3>
+<p><code>resize()</code></p>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">"Cinema_4D.png"</span>, -<span class="number">1</span>)</span><br><span class="line">img2 = cv2.resize(img, (<span class="number">1550</span>,<span class="number">800</span>))  <span class="comment">#x=1550, y=800</span></span><br><span class="line">cv2.imshow(<span class="string">"img2"</span>, img2)</span><br><span class="line">cv2.waitKey(<span class="number">2000</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="输出图片信息"><a class="header-anchor" href="#输出图片信息">¶</a>输出图片信息</h3>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">"Cinema_4D.png"</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(img.shape)</span><br><span class="line"><span class="comment"># (575, 1019, 4)</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="人脸马赛克"><a class="header-anchor" href="#人脸马赛克">¶</a>人脸马赛克</h3>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line">img2 = cv2.resize(img, (<span class="number">160</span>, <span class="number">90</span>))</span><br><span class="line"><span class="comment"># 将图像 img 缩放为指定的目标大小 (160x90像素)。它返回一个新的缩放后的图像 img2。</span></span><br><span class="line">img3 = np.repeat(img2, <span class="number">10</span>, axis=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 使用 np.repeat() 函数在\垂直/方向上重复 img2 10次，生成一个高度为原始图像10倍的新图像 img3。</span></span><br><span class="line">img3 = np.repeat(img3, <span class="number">10</span>, axis=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 使用 np.repeat() 函数在\水平/方向上重复 img3 10次，生成一个宽度为原始图像10倍的最终图像 img3。</span></span><br><span class="line">cv2.imshow(<span class="string">"img3"</span>, img3)</span><br><span class="line">cv2.waitKey(<span class="number">2000</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="OpenCV--Python.assets/image-20230917200035588.png" alt="image-20230917200035588"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="OpenCV--Python.assets/image-20230917200451848.png" alt="image-20230917200451848"></p>
+<h3 id="人脸识别（CascadeClassifier）"><a class="header-anchor" href="#人脸识别（CascadeClassifier）">¶</a>人脸识别（CascadeClassifier）</h3>
+<p><code>cv2.CascadeClassifier</code> 期望输入的是<strong>训练好的人脸检测器的 XML 文件</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/opencv/opencv/tree/master/data/haarcascades">opencv官方的人脸模型</a></p>
+<ul>
+<li><em><code>haarcascade_eye.xml</code>：用于检测眼睛的Haar级联分类器。</em></li>
+<li><em><code>haarcascade_eye_tree_eyeglasses.xml</code>：用于检测戴眼镜的人眼的Haar级联分类器。</em></li>
+<li><em><code>haarcascade_frontalcatface.xml</code>：用于检测正脸上的猫脸的Haar级联分类器。</em></li>
+<li><em><code>haarcascade_frontalface_alt.xml</code>：用于检测正脸的Haar级联分类器的备选模型。</em></li>
+<li><em><code>haarcascade_frontalface_alt_tree.xml</code>：用于检测正脸的Haar级联分类器的备选树模型。</em></li>
+<li><em><code>haarcascade_frontalface_alt2.xml</code>：用于检测正脸的Haar级联分类器的备选模型2。</em></li>
+<li><em><code>haarcascade_frontalface_default.xml</code>：用于检测正脸的默认Haar级联分类器。</em></li>
+<li><em><code>haarcascade_fullbody.xml</code>：用于检测完整身体的Haar级联分类器。</em></li>
+<li><em><code>haarcascade_lefteye_2splits.xml</code>：用于检测左眼的Haar级联分类器。</em></li>
+<li><em><code>haarcascade_license_plate_rus_16stages.xml</code>：用于检测俄罗斯车牌号的Haar级联分类器。</em></li>
+<li><em><code>haarcascade_lowerbody.xml</code>：用于检测下半身的Haar级联分类器。</em></li>
+<li><em><code>haarcascade_profileface.xml</code>：用于检测侧脸的Haar级联分类器。</em></li>
+<li><em><code>haarcascade_righteye_2splits.xml</code>：用于检测右眼的Haar级联分类器。</em></li>
+<li><em><code>haarcascade_russian_plate_number.xml</code>：用于检测俄罗斯车牌号的Haar级联分类器。</em></li>
+<li><em><code>haarcascade_smile.xml</code>：用于检测微笑的Haar级联分类器。</em></li>
+<li><em><code>haarcascade_upperbody.xml</code>：用于检测上半身的Haar级联分类器。</em></li>
+</ul>
+<blockquote>
+<p>XML（可扩展标记语言）是一种用于存储和传输数据的文件格式。它使用标记来描述数据的结构和内容，并具有可读性强、易于解析和跨平台的特点。XML文件通常用于在不同的系统之间交换数据，也用于配置文件和文档存储。</p>
+</blockquote>
+<p>人脸识别思路：</p>
+<ol>
+<li>读取图片</li>
+<li>图像转换为灰度图</li>
+<li>加载使用人脸识别器</li>
+<li>检测图像中的所有面孔</li>
+<li>绘制矩形</li>
+<li>保存图像</li>
+</ol>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">img = cv2.imread(<span class="string">"cxk.jpg"</span>)</span><br><span class="line">face_detector = cv2.CascadeClassifier(</span><br><span class="line">    <span class="string">"F:\\IT\\Python\\Lib\\site-packages\\cv2\\data\\haarcascade_frontalface_default.xml"</span>)</span><br><span class="line"><span class="comment"># 必须要xml格式文件</span></span><br><span class="line">gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line">cv2.imshow(<span class="string">"gray"</span>, gray)</span><br><span class="line">face = face_detector.detectMultiScale(gray, scaleFactor=<span class="number">1.1</span>, minNeighbors=<span class="number">10</span>, minSize=(<span class="number">30</span>, <span class="number">30</span>))</span><br><span class="line"><span class="built_in">print</span>(face)  <span class="comment"># [[341 574 175 175]] == (x, y, w, h)</span></span><br><span class="line"><span class="keyword">for</span> (x, y, w, h) <span class="keyword">in</span> face:</span><br><span class="line">    cv2.rectangle(img, pt1=(x, y), pt2=(x + w, y + h), color=(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), thickness=<span class="number">2</span>)</span><br><span class="line">    <span class="comment"># (对象， 左上角， 右下角， 矩形颜色， 厚度）</span></span><br><span class="line">img = cv2.resize(img, (<span class="number">600</span>, <span class="number">900</span>))</span><br><span class="line">cv2.imshow(<span class="string">"Jay"</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<ul>
+<li><code>scaleFactor</code>参数控制每个图像尺度的比例因子。它指定在图像金字塔中每个尺度的图像大小与前一个尺度之间的比例关系。具体来说，<code>scaleFactor=1.1</code>表示每次缩放图像大小的比例是1.1倍。<strong>较小的比例因子可能会导致更多的人脸检测，但也会增加误报的可能性</strong>。</li>
+<li><code>minNeighbors</code>参数定义人脸矩形的最小邻居数量。它用于过滤掉较小的检测框，只保留具有一定数量邻居的人脸矩形。较高的<code>minNeighbors</code>值有助于消除误报，但也可能忽略掉一些真实的人脸。</li>
+<li><code>minSize</code>参数定义期望的最小人脸尺寸。这会帮助过滤掉过小的检测框，只保留更大的人脸。它通常作为一个元组 <code>(width, height)</code> 提供。</li>
+</ul>
+</blockquote>
+<h3 id="人脸检测贴纸"><a class="header-anchor" href="#人脸检测贴纸">¶</a>人脸检测贴纸</h3>
+<h1 id="认识图像"><a class="header-anchor" href="#认识图像">¶</a>认识图像</h1>
+<p>图像一般分为三类：<br>
+🌙一、二值图像<br>
+二值图像表示的意思就是每一个像素点只由0和1构成，0表示黑色，1表示白色，而且这里的黑色和白色是纯黑和纯白。所以我们看到的图像也就是这个样子。我们以官网丽娜为例子。<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/31b0d4333e054113b6920b052d5ba7d8.png" alt="在这里插入图片描述"><br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/33bbdecba3a2427fa4713d6e33fed0be.png" alt="在这里插入图片描述"></p>
+<p>🌙二、灰度图像<br>
+灰度图像就是一个8位的位图。什么意思呢？就是说00000001一直到11111111，这就是二进制表示。如果表示成我们常用的十进制就是0-255。其中0就表示纯黑色，255就表示纯白色，中间就是处于纯黑色到纯白色的相关颜色。我们还是以丽娜为例。<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/3c7f25958c674f2abfde84015555a411.png" alt="在这里插入图片描述"><br>
+灰度图像一块像素点：<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/3181508c634f4a5ba3d4b34b912a8422.png" alt="在这里插入图片描述"></p>
+<p>🌙三、彩色图像（RGB）<br>
+计算机中所有的颜色都可以由R（红色通道）、G（绿色通道）、B（蓝色通道）来组成，其中每一个通道都有0-255个像素颜色组成。比如说R=234，G=252，B=4就表示黄色。显示出来的也是黄色。所以说彩色图像由三个面构成，分别对应R,G,B。我们还是以丽娜为例子：<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/2de0de6116454563bea0177c3d1075ed.png" alt="在这里插入图片描述"></p>
+<p>所以说我们就可以知道复杂程度排序的话就是：<strong>彩色图像–灰度图像–二值图像</strong>。所以我们在进行人脸项目或者是车牌识别项目中最最最常用的操作就是将<strong>彩色图像</strong>转化为<strong>灰度图像</strong>，然后将<strong>灰度图像</strong>转为最简单的<strong>二值图像</strong>。</p>
+<h2 id="RGB和HSV"><a class="header-anchor" href="#RGB和HSV">¶</a>RGB和HSV</h2>
+<h3 id="RGB-的局限性"><a class="header-anchor" href="#RGB-的局限性">¶</a>RGB 的局限性</h3>
+<p>RGB 是我们接触最多的颜色空间，由三个通道表示一幅图像，分别为红色®，绿色(G)和蓝色(B)。这三种颜色的不同组合可以形成几乎所有的其他颜色。</p>
+<p>RGB 颜色空间是图像处理中最基本、最常用、面向硬件的颜色空间，比较容易理解。</p>
+<p>RGB 颜色空间利用三个颜色分量的线性组合来表示颜色，任何颜色都与这三个分量有关，而且这三个分量是高度相关的，所以连续变换颜色时并不直观，想对图像的颜色进行调整需要更改这三个分量才行。</p>
+<p>自然环境下获取的图像容易受自然光照、遮挡和阴影等情况的影响，即对亮度比较敏感。而 RGB 颜色空间的三个分量都与亮度密切相关，即只要亮度改变，三个分量都会随之相应地改变，而没有一种更直观的方式来表达。</p>
+<p>但是人眼对于这三种颜色分量的敏感程度是不一样的，在单色中，人眼对红色最不敏感，蓝色最敏感，所以 RGB 颜色空间是一种均匀性较差的颜色空间。如果颜色的相似性直接用欧氏距离来度量，其结果与人眼视觉会有较大的偏差。对于某一种颜色，我们很难推测出较为精确的三个分量数值来表示。</p>
+<p>所以，RGB 颜色空间适合于显示系统，却并不适合于图像处理。</p>
+<h3 id="HSV颜色空间"><a class="header-anchor" href="#HSV颜色空间">¶</a>HSV颜色空间</h3>
+<p>基于上述理由，在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
+<p>在 HSV 颜色空间下，比 BGR 更容易跟踪某种颜色的物体，常用于分割指定颜色的物体。</p>
+<p>HSV 表达彩色图像的方式由三个部分组成：</p>
+<ul>
+<li>Hue（色调、色相）</li>
+<li>Saturation（饱和度、色彩纯净度）</li>
+<li>Value（明度）</li>
+</ul>
+<p>用下面这个圆柱体来表示 HSV 颜色空间，圆柱体的横截面可以看做是一个极坐标系 ，H 用极坐标的极角表示，S 用极坐标的极轴长度表示，V 用圆柱中轴的高度表示。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic1.zhimg.com/80/v2-e9f9c843e7d60e8f7aa7de1cd61d1818_720w.webp" alt="img"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://alesmicb.online">alesmic</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://alesmicb.online/2023/09/13/opencv-python/">https://alesmicb.online/2023/09/13/opencv-python/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://alesmicb.online" target="_blank">木槿汐 | Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post_share"><div class="social-share" data-image="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230918143326.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/wechat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/09/13/openmv/" title="OpenMv"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/java-logo-2048x1280.jpg" onerror="onerror=null;src='https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/wallhaven-n625q4_1600x900.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">OpenMv</div></div></a></div><div class="next-post pull-right"><a href="/2023/09/13/opencv-java/" title="OpenCv"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230918143326.png" onerror="onerror=null;src='https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/wallhaven-n625q4_1600x900.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">OpenCv</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/09/13/opencv-java/" title="OpenCv"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230918143326.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-13</div><div class="title">OpenCv</div></div></a></div><div><a href="/2023/09/13/openmv/" title="OpenMv"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/java-logo-2048x1280.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-13</div><div class="title">OpenMv</div></div></a></div><div><a href="/2023/07/29/python/" title="Python-学习中.."><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230729150329.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-29</div><div class="title">Python-学习中..</div></div></a></div><div><a href="/2023/08/07/python-pa-chong/" title="Python爬虫"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230808150712.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-07</div><div class="title">Python爬虫</div></div></a></div><div><a href="/2023/08/05/python-mang-she-shu-gen-lian/" title="Python蟒蛇书跟练"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230805131049.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-05</div><div class="title">Python蟒蛇书跟练</div></div></a></div><div><a href="/2023/08/28/zheng-ze-biao-da-shi/" title="卢文彬"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230808150712.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-28</div><div class="title">卢文彬</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/head.jpg" onerror="this.onerror=null;this.src='https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/wallhaven-n625q4_1600x900.png'" alt="avatar"/></div><div class="author-info__name">alesmic</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/3230426733@qq.com" target="_blank" title="QQ"><i class="fa-brands fa-qq" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:xyhyxu@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenCv%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">OpenCv概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Android-Studio%E8%B0%83%E7%94%A8Python%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">Android Studio调用Python文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%9F%BA%E7%A1%80"><span class="toc-number">3.</span> <span class="toc-text">图像基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%AF%B4%E6%98%8E"><span class="toc-number">3.1.</span> <span class="toc-text">模块说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD-%E6%98%BE%E7%A4%BA-%E8%BE%93%E5%87%BA"><span class="toc-number">3.2.</span> <span class="toc-text">加载.显示.输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#imread-%E2%80%93%E8%AF%BB%E5%8F%96%E5%9B%BE%E5%83%8F"><span class="toc-number">3.2.1.</span> <span class="toc-text">imread()–读取图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#imshow%E2%80%93%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%83%8F"><span class="toc-number">3.2.2.</span> <span class="toc-text">imshow–显示图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">3.2.3.</span> <span class="toc-text">三维数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E5%9B%BE%E7%89%87%E5%B0%BA%E5%AF%B8"><span class="toc-number">3.2.4.</span> <span class="toc-text">调整图片尺寸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E5%9B%BE%E7%89%87%E4%BF%A1%E6%81%AF"><span class="toc-number">3.2.5.</span> <span class="toc-text">输出图片信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E8%84%B8%E9%A9%AC%E8%B5%9B%E5%85%8B"><span class="toc-number">3.2.6.</span> <span class="toc-text">人脸马赛克</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%EF%BC%88CascadeClassifier%EF%BC%89"><span class="toc-number">3.2.7.</span> <span class="toc-text">人脸识别（CascadeClassifier）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E8%B4%B4%E7%BA%B8"><span class="toc-number">3.2.8.</span> <span class="toc-text">人脸检测贴纸</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86%E5%9B%BE%E5%83%8F"><span class="toc-number">4.</span> <span class="toc-text">认识图像</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RGB%E5%92%8CHSV"><span class="toc-number">4.1.</span> <span class="toc-text">RGB和HSV</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RGB-%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">4.1.1.</span> <span class="toc-text">RGB 的局限性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HSV%E9%A2%9C%E8%89%B2%E7%A9%BA%E9%97%B4"><span class="toc-number">4.1.2.</span> <span class="toc-text">HSV颜色空间</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/09/13/opencv-java/" title="OpenCv"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230918143326.png" onerror="this.onerror=null;this.src='https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/wallhaven-n625q4_1600x900.png'" alt="OpenCv"/></a><div class="content"><a class="title" href="/2023/09/13/opencv-java/" title="OpenCv">OpenCv</a><time datetime="2023-09-13T00:58:02.000Z" title="发表于 2023-09-13 08:58:02">2023-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/13/opencv-python/" title="OpenCv"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230918143326.png" onerror="this.onerror=null;this.src='https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/wallhaven-n625q4_1600x900.png'" alt="OpenCv"/></a><div class="content"><a class="title" href="/2023/09/13/opencv-python/" title="OpenCv">OpenCv</a><time datetime="2023-09-13T00:58:02.000Z" title="发表于 2023-09-13 08:58:02">2023-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/13/openmv/" title="OpenMv"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/java-logo-2048x1280.jpg" onerror="this.onerror=null;this.src='https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/wallhaven-n625q4_1600x900.png'" alt="OpenMv"/></a><div class="content"><a class="title" href="/2023/09/13/openmv/" title="OpenMv">OpenMv</a><time datetime="2023-09-13T00:58:02.000Z" title="发表于 2023-09-13 08:58:02">2023-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/08/mysql/" title="MySQL"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230729145814.png" onerror="this.onerror=null;this.src='https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/wallhaven-n625q4_1600x900.png'" alt="MySQL"/></a><div class="content"><a class="title" href="/2023/09/08/mysql/" title="MySQL">MySQL</a><time datetime="2023-09-08T02:25:00.000Z" title="发表于 2023-09-08 10:25:00">2023-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/08/kotlin/" title="MySQL"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230918143613.png" onerror="this.onerror=null;this.src='https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/wallhaven-n625q4_1600x900.png'" alt="MySQL"/></a><div class="content"><a class="title" href="/2023/09/08/kotlin/" title="MySQL">MySQL</a><time datetime="2023-09-08T02:25:00.000Z" title="发表于 2023-09-08 10:25:00">2023-09-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">本网站由<a target="_blank" rel="noopener" href="https://www.upyun.com/"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/%E5%8F%88%E6%8B%8D%E4%BA%91_logo6.png" style="width:3vw;"></a>提供CDN加速</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="4881756305" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true" data-lrcType="-1"> </div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
