@@ -1,0 +1,10 @@
+@font-face{
+    font-family: 'JingNanMaiYuanTi-2.otf';
+    font-display: swap;
+    font-size: 24px;
+    src: url('../fonts/JingNanMaiYuanTi-2.otf') format("truetype");
+}
+
+body {
+    font-family: 'JingNanMaiYuanTi-2.otf';
+}
