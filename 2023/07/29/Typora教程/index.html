@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Makedown/Typora | Alesmic --Blog小站</title><meta name="author" content="Yonghao Xu"><meta name="copyright" content="Yonghao Xu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Typora教程2023.4.27 [TOC] 一、typora的基本使用方法1.标题 ctrl+num123456PLAINTEXT# 一级标题## 二级标题### 三级标题#### 四级标题... ...  标题会在目录与大纲分级显示，可以跳转. 在Typora中建议开启严格模式, 即不应该为#标题,应为# 标题. 应该要手动补上空格, 使得 Markdown 语法在其他文本编辑器上兼容. 2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Makedown&#x2F;Typora">
+<meta property="og:url" content="http://example.com/2023/07/29/Typora%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Alesmic --Blog小站">
+<meta property="og:description" content="Typora教程2023.4.27 [TOC] 一、typora的基本使用方法1.标题 ctrl+num123456PLAINTEXT# 一级标题## 二级标题### 三级标题#### 四级标题... ...  标题会在目录与大纲分级显示，可以跳转. 在Typora中建议开启严格模式, 即不应该为#标题,应为# 标题. 应该要手动补上空格, 使得 Markdown 语法在其他文本编辑器上兼容. 2">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230729150630.png">
+<meta property="article:published_time" content="2023-07-29T07:06:30.000Z">
+<meta property="article:modified_time" content="2024-04-09T09:17:59.000Z">
+<meta property="article:author" content="Yonghao Xu">
+<meta property="article:tag" content="Typora">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230729150630.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Makedown/Typora",
+  "url": "http://example.com/2023/07/29/Typora%E6%95%99%E7%A8%8B/",
+  "image": "https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230729150630.png",
+  "datePublished": "2023-07-29T07:06:30.000Z",
+  "dateModified": "2024-04-09T09:17:59.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Yonghao Xu",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/07/29/Typora%E6%95%99%E7%A8%8B/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Makedown/Typora',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230729150630.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Alesmic --Blog小站</span></a><a class="nav-page-title" href="/"><span class="site-name">Makedown/Typora</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Makedown/Typora</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-29T07:06:30.000Z" title="发表于 2023-07-29 15:06:30">2023-07-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-09T09:17:59.000Z" title="更新于 2024-04-09 17:17:59">2024-04-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Makedown/">Makedown</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2024-04-09 17:17:59&quot;}" hidden></div><h1 id="Typora教程"><a href="#Typora教程" class="headerlink" title="Typora教程"></a>Typora教程</h1><p>2023.4.27</p>
+<p>[TOC]</p>
+<h1 id="一、typora的基本使用方法"><a href="#一、typora的基本使用方法" class="headerlink" title="一、typora的基本使用方法"></a>一、typora的基本使用方法</h1><h2 id="1-标题-ctrl-num"><a href="#1-标题-ctrl-num" class="headerlink" title="1.标题 ctrl+num"></a>1.标题 ctrl+num</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">... ...</span><br></pre></td></tr></table></figure>
+
+<p>标题会在目录与大纲分级显示，可以跳转.</p>
+<p>在Typora中建议开启<code>严格模式</code>, 即不应该为<code>#标题</code>,应为<code># 标题</code>.</p>
+<p>应该要手动补上空格, 使得 Markdown 语法在其他文本编辑器上兼容.</p>
+<h2 id="2-强调-用”-“或”-”包围"><a href="#2-强调-用”-“或”-”包围" class="headerlink" title="2.强调 [用”**“或”__”包围]"></a>2.强调 [用”**“或”__”包围]</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">**( •̀ ω •́ )✧**</span><br><span class="line">__( •̀ ω •́ )✧__</span><br></pre></td></tr></table></figure>
+
+<p>或者选中后搭配快捷键<code>ctrl+b</code></p>
+<p>例子: <strong>( •̀ ω •́ )✧</strong></p>
+<h2 id="3-斜体-用”-“或”-”包围"><a href="#3-斜体-用”-“或”-”包围" class="headerlink" title="3.斜体 [用”*“或”_”包围]"></a>3.斜体 [用”*“或”_”包围]</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">*(❁´◡`❁)*</span><br><span class="line">_(❁´◡`❁)_</span><br></pre></td></tr></table></figure>
+
+<p>或者选中后搭配快捷键<code>ctrl+i</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">***斜体并包围***</span><br></pre></td></tr></table></figure>
+
+<p>例子: <em>( •̀ ω •́ )✧</em> <em><strong>斜体并包围</strong></em></p>
+<h2 id="2-引用-快捷键：-空格"><a href="#2-引用-快捷键：-空格" class="headerlink" title="2.引用 快捷键：&gt;+空格"></a>2.引用 快捷键：&gt;+空格</h2><p>引用</p>
+<p>快捷键：&gt;+空格</p>
+<p>退出引用：shift+Tab (一般在引用内容写完的下一行使用）</p>
+<h2 id="3-无序列表-快捷键：Ctrl-shift"><a href="#3-无序列表-快捷键：Ctrl-shift" class="headerlink" title="3.无序列表 快捷键：Ctrl+shift+]"></a>3.无序列表 快捷键：Ctrl+shift+]</h2><ul>
+<li>例子 （ ]:右中括号 ]</li>
+<li>想要子列表： 按 Tab<br>想要子列表：Tab<br>回到上一层：shift+Tab<br>回到上一层：shift+Tab</li>
+</ul>
+<h2 id="4-有序列表-快捷键：Ctrl-shift"><a href="#4-有序列表-快捷键：Ctrl-shift" class="headerlink" title="4.有序列表 快捷键：Ctrl+shift+["></a>4.有序列表 快捷键：Ctrl+shift+[</h2><ol>
+<li>例子 （ [:左中括号 ]</li>
+<li>想要子列表：按Tab<br>想要子列表：Tab<br>例子<br>回到上一层：shift+Tab<br>回到上一层：shift+Tab</li>
+</ol>
+<h2 id="5-链接-快捷键：-内容-链接"><a href="#5-链接-快捷键：-内容-链接" class="headerlink" title="5.链接 快捷键： [内容]+(链接)"></a>5.链接 快捷键： [内容]+(链接)</h2><p>例子： <a target="_blank" rel="noopener" href="http://www.baidu.com/">百度</a></p>
+<p>快捷键：<code>ctrl + K</code></p>
+<p>注意：<code>( ) 小括号一定要在输入法英文模式下打出</code></p>
+<p>使用方式：</p>
+<ul>
+<li>右键点击-》打开链接</li>
+<li>按住ctrl, 左键点击</li>
+</ul>
+<h2 id="6-图片"><a href="#6-图片" class="headerlink" title="6.图片"></a>6.图片</h2><p>插入图片：直接拖动（复制粘贴）到指定位置即可<br>或者ctrl+shift+i</p>
+<p>Typora默认是将所有图片放在一起，如果需要放置指定目录下： Typora的文件—&gt;&gt;&gt;偏好设置</p>
+<p>img文件夹的名称和位置为举例（可随意更改）</p>
+<p>此时插入图片后，图片会保存在img目录下</p>
+<h2 id="7-高亮"><a href="#7-高亮" class="headerlink" title="7.高亮"></a>7.高亮</h2><p>例子 ： &#x3D;&#x3D;这就是高亮&#x3D;&#x3D;</p>
+<p>快捷键：两个等号+内容+两个等号</p>
+<p>提前要在偏好设置中打开高亮设置：</p>
+<h2 id="8-划重点"><a href="#8-划重点" class="headerlink" title="8.划重点"></a>8.划重点</h2><p>1.加粗： Ctrl+B</p>
+<p>2.代码：Ctrl+shift+ &#96;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这就是代码</span><br></pre></td></tr></table></figure>
+
+<p>3.删除线： Alt+shift+5</p>
+<p>这是删除线</p>
+<p>4.斜体： Ctrl+i</p>
+<p><em>这就是斜体</em></p>
+<p>5.下划线：Ctrl+U</p>
+<p>这就是下划线</p>
+<h2 id="9-表格-快捷键：-Ctrl-T"><a href="#9-表格-快捷键：-Ctrl-T" class="headerlink" title="9.表格 快捷键： Ctrl+T"></a>9.表格 快捷键： Ctrl+T</h2><h2 id="10-代码块-快捷键：-回车"><a href="#10-代码块-快捷键：-回车" class="headerlink" title="10.代码块 快捷键：&#96;&#96;&#96;+回车"></a>10.代码块 快捷键：&#96;&#96;&#96;+回车</h2><p>三个飘号+回车</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">int a=1</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line"> （ 可以选择代码语音）</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、typora简单偏好设置"><a href="#二、typora简单偏好设置" class="headerlink" title="二、typora简单偏好设置"></a>二、typora简单偏好设置</h1><h2 id="1-让大纲看起来更舒服"><a href="#1-让大纲看起来更舒服" class="headerlink" title="1.让大纲看起来更舒服"></a>1.让大纲看起来更舒服</h2><p>Typora的文件—&gt;&gt;&gt;偏好设置</p>
+<h2 id="2-自动保存（需要重启Typora"><a href="#2-自动保存（需要重启Typora" class="headerlink" title="2.自动保存（需要重启Typora)"></a>2.自动保存（需要重启Typora)</h2><h2 id="3-调试功能及使用（需要重启Typora"><a href="#3-调试功能及使用（需要重启Typora" class="headerlink" title="3.调试功能及使用（需要重启Typora)"></a>3.调试功能及使用（需要重启Typora)</h2><p>（1）勾选开启调试模式</p>
+<p>（2）右键点击检查</p>
+<p>（3）小箭头定位元素</p>
+<p>（4）定位后 可在Style中修改</p>
+<p>(5) 但是关闭重启Typora后，修改的效果会消失</p>
+<p>若想永久生效需要修改主题文件 文件-》偏好设置-》外观-》打开主题文件夹</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Yonghao Xu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/07/29/Typora%E6%95%99%E7%A8%8B/">http://example.com/2023/07/29/Typora%E6%95%99%E7%A8%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">Alesmic --Blog小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Typora/">Typora</a></div><div class="post-share"><div class="social-share" data-image="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230729150630.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2023/08/12/HTML/" title="HTML"><img class="cover" src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20230729145814.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">HTML</div></div><div class="info-2"><div class="info-item-1">HTML网页设计有许多应用场景和日常使用案例，以下是一些常见的：  企业官网：企业可以通过网页官网展示公司的信息、产品、服务等内容，提高知名度和品牌形象。 电子商务平台：在线商店或电商平台可以通过网页设计来展示商品、促销活动、购物车和结账等功能，方便用户浏览和购买商品。 社交媒体平台：社交媒体如Facebook、Twitter、Instagram等需要提供一个易于使用、吸引人的界面，以便用户分享内容、与朋友互动。 博客和新闻网站：博客网站和新闻网站需要具备良好的读取性能、排版和页面设计，以便读者更好地阅读文章和获取信息。 教育和培训网站：教育和培训机构通过网页设计来呈现课程、学习资源、教师介绍等内容，在线辅导和互动等功能也需要进行良好的设计。 政府和公共服务机构：政府和公共服务机构利用网页设计来提供公共服务、政策法规、信息发布等功能，方便民众获取所需的信息和服务。 游戏和娱乐网站：游戏和娱乐网站需要吸引用户的注意力，提供游戏、视频、音乐等娱乐内容，同时也需要良好的用户体验和易用性。  这些只是一小部分网页设计的应用场景和日常使用案例。随着技术的不断发展和创新，新的应用场景和使用方...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Yonghao Xu</div><div class="author-info-description">Alesmic --Blog小站</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Typora%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">Typora教程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81typora%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">一、typora的基本使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A0%87%E9%A2%98-ctrl-num"><span class="toc-number">2.1.</span> <span class="toc-text">1.标题 ctrl+num</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BC%BA%E8%B0%83-%E7%94%A8%E2%80%9D-%E2%80%9C%E6%88%96%E2%80%9D-%E2%80%9D%E5%8C%85%E5%9B%B4"><span class="toc-number">2.2.</span> <span class="toc-text">2.强调 [用”**“或”__”包围]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%96%9C%E4%BD%93-%E7%94%A8%E2%80%9D-%E2%80%9C%E6%88%96%E2%80%9D-%E2%80%9D%E5%8C%85%E5%9B%B4"><span class="toc-number">2.3.</span> <span class="toc-text">3.斜体 [用”*“或”_”包围]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BC%95%E7%94%A8-%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%9A-%E7%A9%BA%E6%A0%BC"><span class="toc-number">2.4.</span> <span class="toc-text">2.引用 快捷键：&gt;+空格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8-%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%9ACtrl-shift"><span class="toc-number">2.5.</span> <span class="toc-text">3.无序列表 快捷键：Ctrl+shift+]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8-%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%9ACtrl-shift"><span class="toc-number">2.6.</span> <span class="toc-text">4.有序列表 快捷键：Ctrl+shift+[</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%93%BE%E6%8E%A5-%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%9A-%E5%86%85%E5%AE%B9-%E9%93%BE%E6%8E%A5"><span class="toc-number">2.7.</span> <span class="toc-text">5.链接 快捷键： [内容]+(链接)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%9B%BE%E7%89%87"><span class="toc-number">2.8.</span> <span class="toc-text">6.图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E9%AB%98%E4%BA%AE"><span class="toc-number">2.9.</span> <span class="toc-text">7.高亮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%88%92%E9%87%8D%E7%82%B9"><span class="toc-number">2.10.</span> <span class="toc-text">8.划重点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E8%A1%A8%E6%A0%BC-%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%9A-Ctrl-T"><span class="toc-number">2.11.</span> <span class="toc-text">9.表格 快捷键： Ctrl+T</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E4%BB%A3%E7%A0%81%E5%9D%97-%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%9A-%E5%9B%9E%E8%BD%A6"><span class="toc-number">2.12.</span> <span class="toc-text">10.代码块 快捷键：&#96;&#96;&#96;+回车</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81typora%E7%AE%80%E5%8D%95%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">二、typora简单偏好设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AE%A9%E5%A4%A7%E7%BA%B2%E7%9C%8B%E8%B5%B7%E6%9D%A5%E6%9B%B4%E8%88%92%E6%9C%8D"><span class="toc-number">3.1.</span> <span class="toc-text">1.让大纲看起来更舒服</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%87%AA%E5%8A%A8%E4%BF%9D%E5%AD%98%EF%BC%88%E9%9C%80%E8%A6%81%E9%87%8D%E5%90%AFTypora"><span class="toc-number">3.2.</span> <span class="toc-text">2.自动保存（需要重启Typora)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%B0%83%E8%AF%95%E5%8A%9F%E8%83%BD%E5%8F%8A%E4%BD%BF%E7%94%A8%EF%BC%88%E9%9C%80%E8%A6%81%E9%87%8D%E5%90%AFTypora"><span class="toc-number">3.3.</span> <span class="toc-text">3.调试功能及使用（需要重启Typora)</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/04/%E8%AF%95%E8%AE%B2/" title="无标题">无标题</a><time datetime="2025-11-04T09:51:41.376Z" title="发表于 2025-11-04 17:51:41">2025-11-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/02/hello-world/" title="Hello World">Hello World</a><time datetime="2025-11-02T14:37:50.695Z" title="发表于 2025-11-02 22:37:50">2025-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/22/%E5%9F%BA%E4%BA%8E%E6%B1%9F%E7%A7%91%E5%A4%A7%E7%9A%84stm32%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="基于江科大的stm32单片机学习笔记"><img src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/PixPin_2024-03-18_18-33-31.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于江科大的stm32单片机学习笔记"/></a><div class="content"><a class="title" href="/2024/01/22/%E5%9F%BA%E4%BA%8E%E6%B1%9F%E7%A7%91%E5%A4%A7%E7%9A%84stm32%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="基于江科大的stm32单片机学习笔记">基于江科大的stm32单片机学习笔记</a><time datetime="2024-01-22T14:41:03.000Z" title="发表于 2024-01-22 22:41:03">2024-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/12/C++%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" title="C++基础入门"><img src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20231220103902.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++基础入门"/></a><div class="content"><a class="title" href="/2023/12/12/C++%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" title="C++基础入门">C++基础入门</a><time datetime="2023-12-12T05:01:23.000Z" title="发表于 2023-12-12 13:01:23">2023-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/12/Java%E5%AD%A6%E4%B9%A0--B%E7%AB%99%E9%9F%A9%E9%A1%BA%E5%B9%B3/" title="Java学习--B站韩顺平"><img src="https://pic-img-picgo.oss-cn-nanjing.aliyuncs.com/picture/20240410083334.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java学习--B站韩顺平"/></a><div class="content"><a class="title" href="/2023/12/12/Java%E5%AD%A6%E4%B9%A0--B%E7%AB%99%E9%9F%A9%E9%A1%BA%E5%B9%B3/" title="Java学习--B站韩顺平">Java学习--B站韩顺平</a><time datetime="2023-12-12T05:01:23.000Z" title="发表于 2023-12-12 13:01:23">2023-12-12</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Yonghao Xu</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
